@@ -1,0 +1,47 @@
+<?php
+
+// Install file for Attendance Module.
+
+/**
+ * Implements hook_schema().
+ */
+function attendance_schema() {
+  $schema['attendance'] = array(
+    'description' => t('Attendance record data'),
+    'fields' => array(
+      'event_id' => array(
+        'description' => t('Event Id'),
+        'type' => 'serial',
+      ),
+      'userid' => array(
+        'description' => t('User ID'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'IP' => array(
+        'description' => t('IP Address'),
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'check_in' => array(
+        'description' => t('Check In'),
+        'type' => 'int',
+        'size' => 'big',
+      ),
+      'check_out' => array(
+        'description' => t('Check Out'),
+        'type' => 'int',
+        'size' => 'big',
+      ),
+      'status' => array(
+        'description' => t('Status'),
+        'type' => 'varchar',
+        'length' => 255,
+      ),
+    ),
+    'primary key' => array('Event_id'),
+  );
+  return $schema;
+}

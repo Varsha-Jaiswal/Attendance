@@ -1,0 +1,10 @@
+name: Attendance
+type: module
+description: "Provides a list of user's check in, check out and total working hour for a particular day in form of rows and columns."
+core: 8.x
+dependencies: 
+  - block
+  - node
+version: 1.0
+project: 'Attendance'
+package: Administration

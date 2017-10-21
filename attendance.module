@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Module file for attendance module.
+ */
+  function attendance_cron() {
+    $timestamp=(int) $_SERVER['REQUEST_TIME'];
+    db_update('attendance')
+      ->fields(['check_out'=> $timestamp-6*60*60,'status'=>'Out'])
+      ->condition('status','In')
+      ->execute();  
+  }
